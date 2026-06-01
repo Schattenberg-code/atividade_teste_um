@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Erro ao cadastrar: " . $conn->error;
     }
 }
-
+/* Recebe os dados do formulário e cadastra um novo usuário no banco de dados. */
 //------------------------
 ?>
 
