@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <?php
 
-    include("../public/component/table.php");
+    include("../public/component/table.php"); //chama a tabela.php para aparecer na home.php sem a necessidade de escrever todo o códigoda tabela novamente.
 
     ?>
 
