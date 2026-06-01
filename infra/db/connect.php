@@ -12,4 +12,9 @@ if($conn->connect_error){
 }else{
     echo ("<p> BD: ok </p>");
 }
+
+//faz a conexão entre o php e o banco de dados de forma rápida sem a necessidade de repetir o código várias vezes.
 ?>
+
+
+
