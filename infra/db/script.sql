@@ -9,3 +9,11 @@ CREATE TABLE usuario(
 
 iNSERT INTO usuario (usuario, senha) VALUE ('admin', '123');
 iNSERT INTO usuario (usuario, senha) VALUE ('lucas', '123');
+
+
+
+
+/* 
+   Script responsável pela criação do banco de dados e da tabela de usuários.
+   Também inclui registros iniciais para testes e desenvolvimento da aplicação.
+*/
