@@ -19,23 +19,25 @@ Desenvolver uma aplicação web simples utilizando PHP e MySQL para realizar o c
 
 ## Estrutura Básica dos Arquivos
 
+```text
 projeto/
 │
 ├── index.php
 ├── README.md
 │
 ├── infra/
-│   └── redes/
+│   ├── redes/
 │   └── db/
-│       └── connect.php
+│       ├── connect.php
 │       └── script.sql
 │
-├── public/
-│   └── component/
-│       └── table.php
-│   └── home.php
-│   └── logout.php
-
+└── public/
+    ├── home.php
+    ├── logout.php
+    │
+    └── component/
+        └── table.php
+```
 ### Descrição dos Arquivos
 
 * **index.php**: tela de login.
