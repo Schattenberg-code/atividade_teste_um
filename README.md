@@ -12,8 +12,7 @@ Desenvolver uma aplicação web simples utilizando PHP e MySQL para realizar o c
 
 * PHP
 * MySQL
-* HTML5
-* CSS3
+* HTML
 * XAMPP
 * Git e GitHub
 
