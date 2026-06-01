@@ -12,6 +12,9 @@
 
 <?php
 
+//----------------------
+//Essa área serve para exibir uma tabela na página que mostra todos os usuários cadastrados no banco de dados.
+
 $sqlUsuarios = "SELECT * FROM usuario";
 
 $resultadoUsuarios = $conn -> query($sqlUsuarios);
@@ -24,6 +27,7 @@ while($linha = $resultadoUsuarios->fetch_assoc()){
           </tr>";
 }
 
+//--------------------------
 
 ?>
 
