@@ -2,7 +2,7 @@
 
 ## Nome do Projeto
 
-Atividade teste um em PHP
+sistema-login-php
 
 ## Objetivo da Aplicação
 
