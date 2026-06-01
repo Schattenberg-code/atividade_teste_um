@@ -1,12 +1,29 @@
 <?php 
 
-session_start();
+include("../infra/db/connect.php");
 
 if(!isset($_SESSION["usuario"])){
     header("location: ../index.php");
     exit();
 }
 
+
+//inserir novo usuario
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $usuario = $_POST["usuario"];
+    $senha = $_POST["senha"];
+
+    $sql = "INSERT INTO usuario (usuario, senha) VALUES ('$usuario','$senha')";
+     if($conn->query($sql) === TRUE){
+        echo "Usuário cadastrado com sucesso!";
+    }else{
+        echo "Erro ao cadastrar: " . $conn->error;
+    }
+}
+
+//------------------------
 ?>
 
 
@@ -22,6 +39,29 @@ if(!isset($_SESSION["usuario"])){
 <p>usuario logado: <?php echo $_SESSION["usuario"]; ?> <br></p>
  
 <a href="logout.php">sair</a>
+
+
+
+    <h2>Cadastrar novo usuario</h2>
+
+    <form method="POST">
+    <label for="usuario">Úsuario:</label>
+    <input type="text" name="usuario">
+    <br>
+    <br>
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha">
+    <br>
+    <br>
+    <button type="submit">Entrar</button>
+
+    </form>
+
+    <?php
+
+    include("../public/component/table.php");
+
+    ?>
 
 </body>
 </html>
