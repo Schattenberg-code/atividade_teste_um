@@ -63,3 +63,37 @@ Durante o desenvolvimento e análise do projeto, foram praticados os seguintes c
 * Versionamento de código utilizando Git e GitHub.
 * Documentação de código através de comentários e README.
 * Exibição dinâmica de dados do banco de dados em tabelas HTML.
+
+## função de exclusão de usuário
+
+A funcionalidade de exclusão foi desenvolvida utilizando PHP e MySQL. Foi criado um formulário contendo uma lista suspensa (select) que exibe todos os usuários cadastrados no banco de dados. O usuário seleciona o registro que deseja remover e, ao enviar o formulário, uma requisição POST é enviada para o servidor.
+
+## Trechos importantes do código
+
+#### Listagem dos usuários
+
+$sql = "SELECT id, usuario FROM usuario";
+$resultado = $conn->query($sql);
+
+while ($linha = $resultado->fetch_assoc()) {
+    echo "<option value='{$linha['id']}'>{$linha['usuario']}</option>";
+}
+
+#### Exclusão do usuário
+
+if (isset($_POST["excluir"])) {
+
+    $id = $_POST["usuario_id"];
+
+    $sql = "DELETE FROM usuario WHERE id = $id";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Usuário deletado com sucesso!";
+    } else {
+        echo "Erro ao deletar: " . $conn->error;
+    }
+}
+
+## Dificuldades Encontradas
+
+Ao adicionar um novo formulário utilizando o método POST, ocorreu um problema de interferência entre os formulários da página. Como mais de um formulário utilizava o mesmo método de envio, o código PHP executava trechos que não correspondiam ao formulário que havia sido enviado pelo usuário.
