@@ -22,6 +22,9 @@ if (isset($_POST["cadastrar"])) {
         echo "Erro ao cadastrar: " . $conn->error;
     }
 }
+/* Recebe os dados do formulário e cadastra um novo usuário no banco de dados. */
+
+
 
 //deletar usuario
 
@@ -37,8 +40,28 @@ if (isset($_POST["deletar"])) {
     }
 }
 
-/* Recebe os dados do formulário e cadastra um novo usuário no banco de dados. */
-//------------------------
+//-----------------------------
+
+//editar usuario
+
+if (isset($_POST["editar"])) {
+
+    $id = $_POST["usuario_id"];
+    $novoNome = $_POST["editarNome"];
+    $novaSenha = $_POST["editarSenha"];
+
+    $sql = "UPDATE usuario SET usuario = '$novoNome',senha = '$novaSenha' WHERE id = $id";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Usuário deletado com sucesso!";
+    } else {
+        echo "Erro ao deletar: " . $conn->error;
+    }
+}
+
+//----------------
+
+
 ?>
 
 
@@ -62,8 +85,10 @@ if (isset($_POST["deletar"])) {
 
     <a href="logout.php">sair</a>
 
-    <h2>Cadastrar novo usuario</h2>
 
+
+    
+    <h2>Cadastrar novo usuario</h2>
     <form method="POST">
         <label for="usuario">Úsuario:</label>
         <input type="text" name="usuario">
@@ -73,9 +98,12 @@ if (isset($_POST["deletar"])) {
         <input type="password" name="senha">
         <br>
         <br>
-        <button name="cadastrar" type="submit">Entrar</button>
-
+        <button name="cadastrar" type="submit">Cadastrar</button>
     </form>
+
+
+
+
 
     <form method="POST">
         <label for="excluirUsuario">Selecione qual usuario deseja excluir</label>
@@ -90,7 +118,6 @@ if (isset($_POST["deletar"])) {
                     {$linha['usuario']}
                   </option>";
             }
-
             ?>
 
         </select>
@@ -100,10 +127,38 @@ if (isset($_POST["deletar"])) {
 
 
 
-    <?php
+    <form method="POST">
+        <label for="editarUsuario"> Selecione um usuario para editar </label>
+        <select name="usuario_id" id="editarUsuario">
 
+            <?php
+            $sql = "SELECT id, usuario FROM usuario";
+            $resultado = $conn->query($sql);
+
+            while ($linha = $resultado->fetch_assoc()) {
+                echo "<option value='{$linha['id']}'>
+                    {$linha['usuario']}
+                  </option>";
+            }
+            ?>
+
+        </select>
+
+        <br>
+        <label for="">nome</label>
+        <input type="text" name="editarNome">
+        <br>
+        <label for="">Senha</label>
+        <input type="text" name="editarSenha">
+
+        <button type="submit" name="editar">Editar</button>
+
+    </form>
+
+
+
+    <?php
     include("../public/component/table.php"); //chama a tabela.php para aparecer na home.php sem a necessidade de escrever todo o códigoda tabela novamente.
-    
     ?>
 
 </body>
