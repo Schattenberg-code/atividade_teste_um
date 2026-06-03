@@ -70,7 +70,7 @@ A funcionalidade de exclusão foi desenvolvida utilizando PHP e MySQL. Foi criad
 
 ## Trechos importantes do código
 
-# Listagem dos usuários
+#### Listagem dos usuários
 
 $sql = "SELECT id, usuario FROM usuario";
 $resultado = $conn->query($sql);
@@ -79,7 +79,7 @@ while ($linha = $resultado->fetch_assoc()) {
     echo "<option value='{$linha['id']}'>{$linha['usuario']}</option>";
 }
 
-# Exclusão do usuário
+#### Exclusão do usuário
 
 if (isset($_POST["excluir"])) {
 
