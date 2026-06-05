@@ -1,6 +1,5 @@
 # Sistema Simples de Login e ligação com banco de dados
 
----
 
 ## Nome do Projeto
 
