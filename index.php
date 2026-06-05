@@ -36,15 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="POST">
             <p class="h2 pb-3 d-flex justify-content-center">Entrar</p>
-            <label class="form-label" for="usuario">Usuário:</label>
-            <input class="form-control" type="text" name="usuario">
-            <br>
-            <br>
-            <label class="form-label" for="senha">Senha:</label>
-            <input class="form-control" type="password" name="senha">
-            <br>
-            <br>
-            <div class="d-grid gap-2">
+            <div>
+                <label class="form-label" for="usuario">Usuário:</label>
+                <input class="form-control" type="text" name="usuario">
+            </div>
+            <div>
+                <label class="form-label" for="senha">Senha:</label>
+                <input class="form-control" type="password" name="senha">
+            </div>
+            <div class="d-grid gap-2 mt-5">
                 <button class="btn btn-primary" type="submit">Entrar</button>
             </div>
         </form>

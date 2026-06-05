@@ -92,11 +92,11 @@ if (isset($_POST["editar"])) {
 
             <form method="POST" id="form-adicionar-usuario">
                 <p class="h2 pb-3 d-flex justify-content-center mt-5">Cadastro novo usuário</p>
-                <div class="w-50 w-50 mx-auto">
+                <div class="w-50 mx-auto">
                     <label class="form-label fw-bold " for="usuario">Úsuario:</label>
                     <input class="form-control" type="text" name="usuario">
                 </div>
-                <div class="w-50 w-50 mx-auto">
+                <div class="w-50 mx-auto">
                     <label class="form-label fw-bold" for="senha">Senha:</label>
                     <input class="form-control" type="password" name="senha">
                 </div>
@@ -109,7 +109,7 @@ if (isset($_POST["editar"])) {
 
             <form method="POST">
                 <p class="h2 pb-3 d-flex justify-content-center mt-5">Excluir usuário</p>
-                <div class="w-50 w-50 mx-auto">
+                <div class="w-50 mx-auto">
                     <label class="form-label fw-bold" for="excluirUsuario">Selecione qual usuario deseja excluir</label>
                     <select class="form-select ms-0" name="usuario_id" id="excluirUsuario">
                         <?php
@@ -130,7 +130,7 @@ if (isset($_POST["editar"])) {
 
             <form method="POST">
                 <p class="h2 pb-3 d-flex justify-content-center mt-5">Editar usuário</p>
-                <div class="w-50 w-50 mx-auto">
+                <div class="w-50 mx-auto">
                     <label class="form-label fw-bold" for="editarUsuario"> Selecione um usuario para editar </label>
                     <select class="form-select ms-0" name="usuario_id" id="editarUsuario">
                         <?php
@@ -143,11 +143,11 @@ if (isset($_POST["editar"])) {
                         ?>
                     </select>
                 </div>
-                <div class="w-50 w-50 mx-auto">
+                <div class="w-50 mx-auto">
                     <label class="form-label fw-bold" for="">nome</label>
                     <input class="form-control" type="text" name="editarNome">
                 </div>
-                <div class="w-50 w-50 mx-auto">
+                <div class="w-50 mx-auto">
                     <label class="form-label fw-bold" for="">Senha</label>
                     <input class="form-control" type="text" name="editarSenha">
                 </div>
