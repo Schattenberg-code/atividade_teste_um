@@ -1,10 +1,12 @@
 # Sistema Simples de Login e ligação com banco de dados
 
+---
+
 ## Nome do Projeto
 
 sistema-login-php
 
-## Objetivo da Aplicação
+# Objetivo da Aplicação
 
 Desenvolver uma aplicação web simples utilizando PHP e MySQL para realizar o cadastro, autenticação e listagem de usuários. O projeto tem como objetivo praticar conceitos básicos de desenvolvimento back-end, integração com banco de dados e gerenciamento de sessões.
 
@@ -51,13 +53,13 @@ projeto/
 * **logout.php**: tira o login do usuário.
 * **table.sql**: cria uma tabela exibindo todos os usuários cadastrados no banco de dados.
 
-## Funcionamento Geral do Código
+# Funcionamento Geral do Código
 
 O sistema inicia na tela de login, onde o usuário informa seu nome de usuário e senha. Os dados são enviados para o PHP através do método POST.
 O sistema verifica se o usuário existe no banco de dados. Caso exista, o usuário é direcionado para a tela inicial (Home).
 Na tela Home, existe uma função para adicionar novos usuários ao banco de dados, além de uma funcionalidade de logout.
 
-Durante o desenvolvimento e análise do projeto, foram praticados os seguintes conceitos:
+#### Durante o desenvolvimento e análise do projeto, foram praticados os seguintes conceitos:
 
 * Conexão entre PHP e MySQL.
 * Utilização de consultas SQL no PHP (`SELECT` e `INSERT`).
@@ -69,6 +71,8 @@ Durante o desenvolvimento e análise do projeto, foram praticados os seguintes c
 * Documentação de código através de comentários e README.
 * Exibição dinâmica de dados do banco de dados em tabelas HTML.
 
+--- 
+
 # função de exclusão de usuário
 
 A funcionalidade de exclusão foi desenvolvida utilizando PHP e MySQL. Foi criado um formulário contendo uma lista suspensa (select) que exibe todos os usuários cadastrados no banco de dados. O usuário seleciona o registro que deseja remover e, ao enviar o formulário, uma requisição POST é enviada para o servidor.
@@ -77,31 +81,36 @@ A funcionalidade de exclusão foi desenvolvida utilizando PHP e MySQL. Foi criad
 
 #### Listagem dos usuários
 
-$sql = "SELECT id, usuario FROM usuario";
-$resultado = $conn->query($sql);
-
-while ($linha = $resultado->fetch_assoc()) {
-    echo "<option value='{$linha['id']}'>{$linha['usuario']}</option>";
-}
+```text
+    <select class="form-select ms-0" name="usuario_id" id="excluirUsuario">
+        <?php
+            $sql = "SELECT id, usuario FROM usuario";
+            $resultado = $conn->query($sql);
+            while ($linha = $resultado->fetch_assoc()) {
+                echo "<option value='{$linha['id']}'>{$linha['usuario']}</option>";
+            }
+        ?>
+    </select>
+```
 
 #### Exclusão do usuário
 
 ```text
-if (isset($_POST["excluir"])) {
-    $id = $_POST["usuario_id"];
-    $sql = "DELETE FROM usuario WHERE id = $id";
-    if ($conn->query($sql) === TRUE) {
-        echo "Usuário deletado com sucesso!";
-    } else {
-        echo "Erro ao deletar: " . $conn->error;
+    if (isset($_POST["excluir"])) {
+        $id = $_POST["usuario_id"];
+        $sql = "DELETE FROM usuario WHERE id = $id";
+        if ($conn->query($sql) === TRUE) {
+            echo "Usuário deletado com sucesso!";
+        } else {
+            echo "Erro ao deletar: " . $conn->error;
+        }
     }
-}
 ```
 # Função de edição de usuário
 
 A funcionalidade de edição foi desenvolvida utilizando PHP e MySQL. Foi criado um formulário contendo uma lista suspensa (select) que exibe todos os usuários cadastrados no banco de dados. O usuário seleciona o registro que deseja editar, informa os novos dados e, ao enviar o formulário, uma requisição POST é enviada para o servidor.
 
-##Trechos importantes do código
+## Trechos importantes do código
 
 #### Listagem dos usuários
 
