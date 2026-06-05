@@ -12,9 +12,14 @@ Desenvolver uma aplicação web simples utilizando PHP e MySQL para realizar o c
 
 * PHP
 * MySQL
-* HTML
+* HTML5
 * XAMPP
 * Git e GitHub
+* Bootstrap
+
+## Interface
+
+A interface do sistema foi desenvolvida utilizando o framework Bootstrap 5, que foi empregado para a criação de componentes visuais, organização do layout e estilização responsiva das páginas.
 
 ## Estrutura Básica dos Arquivos
 
