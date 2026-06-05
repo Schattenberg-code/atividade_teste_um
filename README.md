@@ -69,7 +69,7 @@ Durante o desenvolvimento e análise do projeto, foram praticados os seguintes c
 * Documentação de código através de comentários e README.
 * Exibição dinâmica de dados do banco de dados em tabelas HTML.
 
-## função de exclusão de usuário
+# função de exclusão de usuário
 
 A funcionalidade de exclusão foi desenvolvida utilizando PHP e MySQL. Foi criado um formulário contendo uma lista suspensa (select) que exibe todos os usuários cadastrados no banco de dados. O usuário seleciona o registro que deseja remover e, ao enviar o formulário, uma requisição POST é enviada para o servidor.
 
@@ -86,18 +86,52 @@ while ($linha = $resultado->fetch_assoc()) {
 
 #### Exclusão do usuário
 
+```text
 if (isset($_POST["excluir"])) {
-
     $id = $_POST["usuario_id"];
-
     $sql = "DELETE FROM usuario WHERE id = $id";
-
     if ($conn->query($sql) === TRUE) {
         echo "Usuário deletado com sucesso!";
     } else {
         echo "Erro ao deletar: " . $conn->error;
     }
 }
+```
+# Função de edição de usuário
+
+A funcionalidade de edição foi desenvolvida utilizando PHP e MySQL. Foi criado um formulário contendo uma lista suspensa (select) que exibe todos os usuários cadastrados no banco de dados. O usuário seleciona o registro que deseja editar, informa os novos dados e, ao enviar o formulário, uma requisição POST é enviada para o servidor.
+
+##Trechos importantes do código
+
+#### Listagem dos usuários
+
+```text
+    <select class="form-select ms-0 mb-5" name="usuario_id" id="editarUsuario">
+        <?php
+            $sql = "SELECT id, usuario FROM usuario";
+            $resultado = $conn->query($sql);
+            while ($linha = $resultado->fetch_assoc()) {
+                echo "<option value='{$linha['id']}'>{$linha['usuario']}</option>";
+            }
+        ?>
+    </select>
+```
+
+#### Editar usuário
+
+```text
+if (isset($_POST["editar"])) {
+    $id = $_POST["usuario_id"];
+    $novoNome = $_POST["editarNome"];
+    $novaSenha = $_POST["editarSenha"];
+    $sql = "UPDATE usuario SET usuario = '$novoNome',senha = '$novaSenha' WHERE id = $id";
+    if ($conn->query($sql) === TRUE) {
+        echo "Usuário deletado com sucesso!";
+    } else {
+        echo "Erro ao deletar: " . $conn->error;
+    }
+}
+```
 
 ## Dificuldades Encontradas
 
