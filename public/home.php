@@ -65,7 +65,10 @@ if (isset($_POST["editar"])) {
 
 ?>
 
-<!--------------------html--------------------->
+
+
+
+<!----------------------------------------------html---------------------------------------------->
 
 <html lang="en">
 
@@ -84,8 +87,8 @@ if (isset($_POST["editar"])) {
         <div class=" div-conteudo shadow-lg rounded rounded-3 w-75 container-xxl">
 
             <div>
-                <h1 class="fs-1 text-center">bem vindo</h1>
-                <p class="text-center">usuario logado: <?php echo $_SESSION["usuario"]; ?> <br></p>
+                <h1 class="fs-1 text-center">Bem vindo</h1>
+                <p class="text-center">Usuário logado: <?php echo $_SESSION["usuario"]; ?> <br></p>
                 <a class="btn btn-outline-danger d-flex justify-content-center" href="logout.php">sair</a>
                 <hr>
             </div>
@@ -93,7 +96,7 @@ if (isset($_POST["editar"])) {
             <form method="POST" id="form-adicionar-usuario">
                 <p class="h2 pb-3 d-flex justify-content-center mt-5">Cadastro novo usuário</p>
                 <div class="w-50 mx-auto">
-                    <label class="form-label fw-bold " for="usuario">Úsuario:</label>
+                    <label class="form-label fw-bold " for="usuario">Usuário:</label>
                     <input class="form-control" type="text" name="usuario">
                 </div>
                 <div class="w-50 mx-auto">
@@ -107,10 +110,10 @@ if (isset($_POST["editar"])) {
 
             <hr>
 
-            <form method="POST">
+            <form method="POST" id="form-remover-usuario" action="#form-remover-usuario">
                 <p class="h2 pb-3 d-flex justify-content-center mt-5">Excluir usuário</p>
                 <div class="w-50 mx-auto">
-                    <label class="form-label fw-bold" for="excluirUsuario">Selecione qual usuario deseja excluir</label>
+                    <label class="form-label fw-bold d-flex justify-content-center" for="excluirUsuario">Selecione qual usuário deseja excluir</label>
                     <select class="form-select ms-0" name="usuario_id" id="excluirUsuario">
                         <?php
                         $sql = "SELECT id, usuario FROM usuario";
@@ -128,11 +131,11 @@ if (isset($_POST["editar"])) {
 
             <hr>
 
-            <form method="POST">
+            <form method="POST" id="form-editar-usuario" action="#form-editar-usuario">
                 <p class="h2 pb-3 d-flex justify-content-center mt-5">Editar usuário</p>
                 <div class="w-50 mx-auto">
-                    <label class="form-label fw-bold" for="editarUsuario"> Selecione um usuario para editar </label>
-                    <select class="form-select ms-0" name="usuario_id" id="editarUsuario">
+                    <label class="form-label fw-bold d-flex justify-content-center" for="editarUsuario"> Selecione um usuário para editar </label>
+                    <select class="form-select ms-0 mb-5" name="usuario_id" id="editarUsuario">
                         <?php
                         $sql = "SELECT id, usuario FROM usuario";
                         $resultado = $conn->query($sql);
@@ -144,15 +147,15 @@ if (isset($_POST["editar"])) {
                     </select>
                 </div>
                 <div class="w-50 mx-auto">
-                    <label class="form-label fw-bold" for="">nome</label>
+                    <label class="form-label fw-bold" for="">Novo nome:</label>
                     <input class="form-control" type="text" name="editarNome">
                 </div>
                 <div class="w-50 mx-auto">
-                    <label class="form-label fw-bold" for="">Senha</label>
+                    <label class="form-label fw-bold" for="">Nova senha:</label>
                     <input class="form-control" type="text" name="editarSenha">
                 </div>
                 <div class="d-flex justify-content-center mt-5">
-                    <button class="btn btn-primary w-25" name="deletar" type="editar">Editar</button>
+                    <button class="btn btn-primary w-25" name="editar" type="editar">Editar</button>
                 </div>
             </form>
 

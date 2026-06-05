@@ -2,25 +2,9 @@ body{
     overflow-y: scroll;
     padding: 20px;
 }
-
-
-#form-adicionar-usuario{
-    input{
-        margin: 0px !important;
-    }
-
-    label{
-        margin: 0px !important;
-    }
-}
-
 .div-conteudo{
-    border: 1px solid rgba(0, 0, 0, 0.349) !important;
+    border: 1px solid rgba(0, 0, 0, 0.144) !important;
     border-radius: 10px;
     background-color: rgb(255, 255, 255) !important;
     padding: 20px !important;
-}
-
-select{
-    margin: 0px 10px !important;
 }
